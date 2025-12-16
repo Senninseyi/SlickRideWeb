@@ -1,4 +1,13 @@
 <script lang="ts">
+    import ComingSoonModal from './ComingSoonModal.svelte';
+
+    let modalOpen = false;
+    let modalFeatureName = "";
+
+    function showComingSoon(featureName: string) {
+        modalFeatureName = featureName;
+        modalOpen = true;
+    }
 </script>
 
 <section class="hero">
@@ -12,8 +21,8 @@
             slick.
         </p>
         <div class="actions">
-            <button class="btn-primary">Download App</button>
-            <button class="btn-secondary">Learn More</button>
+            <button class="btn-primary" on:click={() => showComingSoon("App Download")}>Download App</button>
+            <button class="btn-secondary" on:click={() => showComingSoon("Learn More")}>Learn More</button>
         </div>
     </div>
 
@@ -22,6 +31,8 @@
         <div class="glow glow-2"></div>
     </div>
 </section>
+
+<ComingSoonModal bind:isOpen={modalOpen} featureName={modalFeatureName} />
 
 <style>
     .hero {

@@ -1,5 +1,15 @@
 <script lang="ts">
+  import ComingSoonModal from './ComingSoonModal.svelte';
+  
   export let appName = "Slick Ride";
+
+  let modalOpen = false;
+  let modalFeatureName = "";
+
+  function showComingSoon(featureName: string) {
+    modalFeatureName = featureName;
+    modalOpen = true;
+  }
 </script>
 
 <nav>
@@ -9,11 +19,13 @@
     </div>
     <div class="links">
       <a href="#features">Features</a>
-      <a href="#ecosystem">Ecosystem</a>
-      <a href="#download" class="btn-primary">Get the App</a>
+      <button on:click={() => showComingSoon("Ecosystem")}>Ecosystem</button>
+      <button on:click={() => showComingSoon("App Download")} class="btn-primary">Get the App</button>
     </div>
   </div>
 </nav>
+
+<ComingSoonModal bind:isOpen={modalOpen} featureName={modalFeatureName} />
 
 <style>
   nav {
@@ -54,13 +66,18 @@
     align-items: center;
   }
 
-  .links a {
+  .links a,
+  .links button {
     font-size: 0.95rem;
     font-weight: 500;
     color: var(--color-text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
-  .links a:hover {
+  .links a:hover,
+  .links button:hover {
     color: var(--color-text-main);
   }
 

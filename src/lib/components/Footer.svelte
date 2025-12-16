@@ -1,5 +1,16 @@
 <script lang="ts">
+    import ComingSoonModal from './ComingSoonModal.svelte';
+    
     const currentYear = new Date().getFullYear();
+
+    let modalOpen = false;
+    let modalFeatureName = "";
+
+    function showComingSoon(featureName: string, event: MouseEvent) {
+        event.preventDefault();
+        modalFeatureName = featureName;
+        modalOpen = true;
+    }
 </script>
 
 <footer>
@@ -12,20 +23,20 @@
         <div class="links">
             <div class="column">
                 <h4>Product</h4>
-                <a href="#rider">Rider App</a>
-                <a href="#driver">Driver App</a>
-                <a href="#safety">Safety</a>
+                <a href="#rider" on:click={(e) => showComingSoon("Rider App", e)}>Rider App</a>
+                <a href="#driver" on:click={(e) => showComingSoon("Driver App", e)}>Driver App</a>
+                <a href="#safety" on:click={(e) => showComingSoon("Safety Information", e)}>Safety</a>
             </div>
             <div class="column">
                 <h4>Company</h4>
-                <a href="#about">About</a>
-                <a href="#careers">Careers</a>
-                <a href="#contact">Contact</a>
+                <a href="#about" on:click={(e) => showComingSoon("About Us", e)}>About</a>
+                <a href="#careers" on:click={(e) => showComingSoon("Careers", e)}>Careers</a>
+                <a href="#contact" on:click={(e) => showComingSoon("Contact Us", e)}>Contact</a>
             </div>
             <div class="column">
                 <h4>Legal</h4>
-                <a href="#privacy">Privacy</a>
-                <a href="#terms">Terms</a>
+                <a href="#privacy" on:click={(e) => showComingSoon("Privacy Policy", e)}>Privacy</a>
+                <a href="#terms" on:click={(e) => showComingSoon("Terms of Service", e)}>Terms</a>
             </div>
         </div>
     </div>
@@ -35,6 +46,8 @@
         </p>
     </div>
 </footer>
+
+<ComingSoonModal bind:isOpen={modalOpen} featureName={modalFeatureName} />
 
 <style>
     footer {
