@@ -39,6 +39,15 @@
                 <a href="#terms" on:click={(e) => showComingSoon("Terms of Service", e)}>Terms</a>
             </div>
         </div>
+
+        <div class="column">
+            <h4>Our Location</h4>
+            <p class="address-text">
+                Plot 10-14, Toll Gate,<br />
+                Sagamu, Ogun State,<br />
+                Nigeria
+            </p>
+        </div>
     </div>
     <div class="container bottom-bar">
         <p>
@@ -76,6 +85,12 @@
     .brand p {
         color: var(--color-text-muted);
         max-width: 300px;
+    }
+
+    .address-text {
+        color: var(--color-text-muted);
+        line-height: 1.6;
+        font-size: 0.95rem;
     }
 
     .links {
