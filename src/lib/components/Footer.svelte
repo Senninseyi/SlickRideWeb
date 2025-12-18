@@ -53,6 +53,9 @@
         <p>
             &copy; {currentYear} Slick Ride / Remo Rides. All rights reserved.
         </p>
+        <p class="powered-by">
+            Powered by <span class="highlight">SlickDot International Venture</span>
+        </p>
     </div>
 </footer>
 
@@ -124,5 +127,15 @@
         text-align: center;
         color: rgba(255, 255, 255, 0.3);
         font-size: 0.9rem;
+    }
+
+    .powered-by {
+        margin-top: 12px;
+        font-size: 0.85rem;
+    }
+
+    .powered-by .highlight {
+        color: var(--color-primary);
+        font-weight: 600;
     }
 </style>
