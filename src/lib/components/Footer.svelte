@@ -35,7 +35,8 @@
             </div>
             <div class="column">
                 <h4>Legal</h4>
-                <a href="#privacy" on:click={(e) => showComingSoon("Privacy Policy", e)}>Privacy</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/data-deletion">Data Deletion</a>
                 <a href="#terms" on:click={(e) => showComingSoon("Terms of Service", e)}>Terms</a>
             </div>
         </div>
